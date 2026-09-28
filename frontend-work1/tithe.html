@@ -4,17 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>申报什一税 · 奥特拉玛五百世界什一税总署</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-<p>帝国内政部 · 军务部联合派驻</p>
-<a href="index.html">奥特拉玛五百世界什一税总署</a>
-<nav>
+<header class="site-header">
+<div class="nav-wrap">
+<a class="logo" href="index.html">奥特拉玛五百世界什一税总署</a>
+<nav class="main-nav">
 <a href="index.html">首页</a>
 <a href="worlds.html">世界名录</a>
-<a href="tithe.html">申报什一税</a>
+<a class="active" href="tithe.html">申报什一税</a>
 <a href="index.html#decree">征税谕令</a>
 </nav>
+</div>
+<p class="motto">帝国内政部 · 军务部联合派驻</p>
 </header>
 
 <main>
@@ -104,7 +107,7 @@
 <textarea id="petition" name="petition" rows="5" maxlength="300" placeholder="简述本界百年贡赋备办情形，限300字以内" required></textarea>
 </p>
 
-<p>
+<p class="form-actions">
 <button type="submit">呈递申报册</button>
 <button type="reset">重置重填</button>
 </p>
@@ -124,12 +127,14 @@
 </main>
 
 <footer>
+<div class="footer-inner">
 <p>奥特拉玛五百世界什一税总署 · 仅为战锤40000主题学习作品 · 愿帝皇守护您的灵魂</p>
 <ul>
 <li><a href="https://warhammer40000.com/" target="_blank" rel="noopener">战锤40000 官方网站</a></li>
 <li><a href="https://wh40k.lexicanum.com/" target="_blank" rel="noopener">Lexicanum 帝国档案库</a></li>
 <li><a href="https://warhammer40k.fandom.com/" target="_blank" rel="noopener">Warhammer 40K Wiki</a></li>
 </ul>
+</div>
 </footer>
 </body>
 </html>
