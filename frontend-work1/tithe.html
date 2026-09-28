@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>申报什一税 · 奥特拉玛五百世界什一税总署</title>
+</head>
+<body>
+<header>
+<p>帝国内政部 · 军务部联合派驻</p>
+<a href="index.html">奥特拉玛五百世界什一税总署</a>
+<nav>
+<a href="index.html">首页</a>
+<a href="worlds.html">世界名录</a>
+<a href="tithe.html">申报什一税</a>
+<a href="index.html#decree">征税谕令</a>
+</nav>
+</header>
+
+<main>
+<section id="notice">
+<h1>百年什一税申报</h1>
+<p>诸世界总督须于征缴年度终了前如实填报此册。匿产瞒报者，以叛教罪论处；陈情书字迹潦草者，退回重填。</p>
+</section>
+
+<section id="form">
+<h2>什一税申报册</h2>
+<form action="#" method="get">
+<fieldset>
+<legend>申报世界信息</legend>
+<p>
+<label for="taxid">税籍编号</label>
+<input type="text" id="taxid" name="taxid" placeholder="内政部颁发的八位编号" pattern="[0-9]{8}" required>
+</p>
+<p>
+<label for="world">世界名称</label>
+<input type="text" id="world" name="world" placeholder="如：考斯" required>
+</p>
+<p>
+<label for="governor">总督姓名</label>
+<input type="text" id="governor" name="governor" placeholder="现任行星总督全名" required>
+</p>
+<p>
+<label for="worldtype">世界类型</label>
+<select id="worldtype" name="worldtype" required>
+<option value="">请选择世界类型</option>
+<option value="hive">巢都世界</option>
+<option value="forge">铸造世界</option>
+<option value="agri">农业世界</option>
+<option value="industrial">工业世界</option>
+<option value="garden">花园世界</option>
+<option value="fief">阿斯塔特采邑</option>
+<option value="frontier">边陲世界</option>
+</select>
+</p>
+</fieldset>
+
+<fieldset>
+<legend>核定税级</legend>
+<label><input type="radio" name="grade" value="prima" checked> Exactis Prima（一等税）</label>
+<label><input type="radio" name="grade" value="secundus"> Exactis Secundus（二等税）</label>
+<label><input type="radio" name="grade" value="tertia"> Exactis Tertius（三等税）</label>
+<label><input type="radio" name="grade" value="non"> Aptus Non（申请豁免）</label>
+</fieldset>
+
+<fieldset>
+<legend>本次贡赋品类（可多选）</legend>
+<label><input type="checkbox" name="tribute" value="men"> 兵员什一税</label>
+<label><input type="checkbox" name="tribute" value="arms"> 武备什一税</label>
+<label><input type="checkbox" name="tribute" value="food"> 粮秣什一税</label>
+<label><input type="checkbox" name="tribute" value="relic"> 圣物什一税</label>
+</fieldset>
+
+<fieldset>
+<legend>缴纳数额与期限</legend>
+<p>
+<label for="regiments">拟缴星界军兵团数（个）</label>
+<input type="number" id="regiments" name="regiments" min="0" max="500" value="0">
+</p>
+<p>
+<label for="duedate">拟定交割日期</label>
+<input type="date" id="duedate" name="duedate" required>
+</p>
+</fieldset>
+
+<fieldset>
+<legend>联络与凭证</legend>
+<p>
+<label for="mail">总督府信标邮箱</label>
+<input type="email" id="mail" name="mail" placeholder="governor@ultramar.imp" required>
+</p>
+<p>
+<label for="seal">印鉴口令</label>
+<input type="password" id="seal" name="seal" placeholder="军务部印鉴核验口令" required>
+</p>
+<p>
+<label for="ledger">税册副本上传</label>
+<input type="file" id="ledger" name="ledger">
+</p>
+</fieldset>
+
+<p>
+<label for="petition">申报陈情书</label>
+<textarea id="petition" name="petition" rows="5" maxlength="300" placeholder="简述本界百年贡赋备办情形，限300字以内" required></textarea>
+</p>
+
+<p>
+<button type="submit">呈递申报册</button>
+<button type="reset">重置重填</button>
+</p>
+</form>
+</section>
+
+<aside>
+<h2>填报须知</h2>
+<ul>
+<li>税籍编号为八位数字，刻于总督府铜印之上。</li>
+<li>申请豁免者须附战团或战区司令的印信证明。</li>
+<li>兵团数单届不得超过五百个，超出者须分届申报。</li>
+<li>陈情书将由内政部书记官逐条审阅，请勿妄言。</li>
+</ul>
+<a href="worlds.html">← 返回世界名录核对税籍</a>
+</aside>
+</main>
+
+<footer>
+<p>奥特拉玛五百世界什一税总署 · 仅为战锤40000主题学习作品 · 愿帝皇守护您的灵魂</p>
+<ul>
+<li><a href="https://warhammer40000.com/" target="_blank" rel="noopener">战锤40000 官方网站</a></li>
+<li><a href="https://wh40k.lexicanum.com/" target="_blank" rel="noopener">Lexicanum 帝国档案库</a></li>
+<li><a href="https://warhammer40k.fandom.com/" target="_blank" rel="noopener">Warhammer 40K Wiki</a></li>
+</ul>
+</footer>
+</body>
+</html>
