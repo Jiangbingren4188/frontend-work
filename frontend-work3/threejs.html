@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three.js 帝国星港展台 · 奥特拉玛五百世界什一税总署</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { margin: 0; overflow: hidden; }
+  #scene-overlay {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    max-width: 340px;
+    padding: 14px 18px;
+    background: rgba(20, 16, 10, 0.72);
+    border: 1px solid rgba(200, 162, 77, 0.5);
+    border-radius: 8px;
+    color: #e8e0cc;
+    pointer-events: none;
+    z-index: 10;
+  }
+  #scene-overlay h1 {
+    font-size: 20px;
+    color: #d9b45c;
+    margin: 0 0 6px;
+  }
+  #scene-overlay p { margin: 4px 0; font-size: 13px; line-height: 1.6; }
+  #scene-overlay .hint { color: #b0a68c; }
+  #scene-overlay a {
+    display: inline-block;
+    margin-top: 8px;
+    color: #d9b45c;
+    pointer-events: auto;
+  }
+  #scene-note {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #b0a68c;
+    font-size: 13px;
+    background: rgba(20, 16, 10, 0.6);
+    padding: 6px 16px;
+    border-radius: 16px;
+    pointer-events: none;
+    z-index: 10;
+  }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<div id="scene-overlay">
+<h1>帝国星港 · 什一税展台</h1>
+<p>圆柱星港平台上陈列四件税区象征：金色税玺、巢都世界、星港环、帝皇税柱，整体绕台缓转。</p>
+<p class="hint">左键拖拽：环绕查看 ｜ 滚轮：缩放 ｜ 右键拖拽：平移</p>
+<a href="portal.html">← 返回作品集</a>
+</div>
+<div id="scene-note">Three.js r128 ｜ 场景 + 透视相机 + WebGL渲染器 + 双光源 + 几何体/材质 + 动画循环</div>
+
+<script src="lib/three.min.js"></script>
+<script src="lib/OrbitControls.js"></script>
+<script src="js/three-showcase.js"></script>
+</body>
+</html>
