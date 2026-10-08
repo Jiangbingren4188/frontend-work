@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chart.js 税籍图表 · 奥特拉玛五百世界什一税总署</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+<div class="nav-wrap">
+<a class="logo" href="index.html">奥特拉玛五百世界什一税总署</a>
+<nav class="main-nav">
+<a href="portal.html">作品集</a>
+<a href="index.html">首页</a>
+<a href="worlds.html">世界名录</a>
+<a href="tithe.html">申报什一税</a>
+<a href="echarts.html">ECharts图表</a>
+<a class="active" href="chartjs.html">Chart.js图表</a>
+<a href="bootstrap.html">Bootstrap版</a>
+</nav>
+</div>
+<p class="motto">帝国内政部 · 军务部联合派驻</p>
+</header>
+
+<main>
+<section id="charts">
+<h1>税籍数据可视化（Chart.js）</h1>
+<p>本页与 ECharts 页使用同一份数据，但换用 Chart.js 绘制，并选择与数据目的匹配的图表类型。数据通过 fetch 从本地 data/worlds.json 异步加载。</p>
+<p>数据来源：本地 data/worlds.json ｜ 范围：奥特拉玛税区节选 9 个世界 ｜ 单位：人口（亿）、税率（%）</p>
+<p id="chart-status" class="chart-status">图表数据加载中…</p>
+
+<h2>一、各世界人口规模对比（柱状图）</h2>
+<p>选型理由：回答"谁多谁少"用柱状图。纵轴从 0 开始，不夸大差异；人口单位为亿。</p>
+<div class="chart-box"><canvas id="population-chart"></canvas></div>
+
+<h2>二、人口规模与税率的关系（散点图）</h2>
+<p>选型理由：回答"两个数值有没有关系"用散点图。横轴为人口（亿），纵轴为税率（%），每个点代表一个世界；豁免世界税率为 0，落在横轴上。</p>
+<div class="chart-box"><canvas id="relation-chart"></canvas></div>
+</section>
+
+<aside>
+<h2>图表说明</h2>
+<p>图表库：Chart.js 4.5.1（本地 lib 离线包，UMD 版，画在 canvas 上）；数据来源：本地 JSON 文件；配置：responsive 响应式、纵轴 beginAtZero、图例置底。</p>
+<a href="portal.html">返回作品集 →</a>
+</aside>
+</main>
+
+<footer>
+<div class="footer-inner">
+<p>奥特拉玛五百世界什一税总署 · 仅为战锤40000主题学习作品 · 愿帝皇守护您的灵魂</p>
+</div>
+</footer>
+<script src="lib/chart.umd.js"></script>
+<script src="js/chartjs-charts.js"></script>
+</body>
+</html>
