@@ -460,3 +460,46 @@ footer ul {
     grid-template-columns: 1.05fr 1fr;
   }
 }
+
+.filter-bar {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.filter-row label {
+  min-width: 80px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.filter-row input[type="search"],
+.filter-row select {
+  flex: 1;
+  min-width: 180px;
+  max-width: 320px;
+}
+
+.result-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.result-count strong {
+  color: var(--gold-bright);
+}
+
+.empty-row {
+  text-align: center;
+  color: var(--muted);
+}
