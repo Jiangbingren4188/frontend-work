@@ -533,3 +533,58 @@ footer ul {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+.records-hint {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.record-item {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.record-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.record-id {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.record-world {
+  color: var(--gold-bright);
+  font-weight: bold;
+}
+
+.record-grade {
+  color: #8fb8de;
+  font-size: 0.85rem;
+}
+
+.record-date {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.record-body {
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.empty-note {
+  color: var(--muted);
+  text-align: center;
+  padding: 20px;
+}

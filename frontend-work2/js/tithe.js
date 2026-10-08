@@ -1,3 +1,61 @@
+const STORAGE_KEY = "ultramar_tithe_records";
+
+function getRecords() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveRecords(records) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+}
+
+function renderRecords() {
+  const container = document.getElementById("records-list");
+  if (!container) return;
+  const records = getRecords();
+  container.innerHTML = "";
+  if (records.length === 0) {
+    const p = document.createElement("p");
+    p.className = "empty-note";
+    p.textContent = "暂无已呈递的申报册记录。";
+    container.appendChild(p);
+    return;
+  }
+  records.forEach(function (r, idx) {
+    const div = document.createElement("div");
+    div.className = "record-item";
+    const head = document.createElement("div");
+    head.className = "record-head";
+    const items = [
+      { cls: "record-id", text: "#" + (idx + 1) },
+      { cls: "record-world", text: r.world },
+      { cls: "record-grade", text: r.gradeLabel },
+      { cls: "record-date", text: r.submittedAt }
+    ];
+    items.forEach(function (it) {
+      const span = document.createElement("span");
+      span.className = it.cls;
+      span.textContent = it.text;
+      head.appendChild(span);
+    });
+    const body = document.createElement("div");
+    body.className = "record-body";
+    body.textContent =
+      "总督：" + r.governor +
+      " ｜ 税籍编号：" + r.taxid +
+      " ｜ 贡赋：" + r.tributes.join("、") +
+      " ｜ 兵团数：" + r.regiments +
+      " ｜ 交割日：" + r.duedate;
+    div.appendChild(head);
+    div.appendChild(body);
+    container.appendChild(div);
+  });
+}
+
 function showToast(msg) {
   let toast = document.getElementById("toast");
   if (!toast) {
@@ -28,7 +86,37 @@ function handleSubmit(event) {
     form.reportValidity();
     return;
   }
-  showToast("申报册已呈递，书记官将尽快核验。");
+  const gradeEl = form.querySelector('input[name="grade"]:checked');
+  const tributeEls = form.querySelectorAll('input[name="tribute"]:checked');
+  const gradeLabels = {
+    prima: "Exactis Prima",
+    secundus: "Exactis Secundus",
+    tertia: "Exactis Tertius",
+    non: "Aptus Non"
+  };
+  const tributeLabels = {
+    men: "兵员什一税",
+    arms: "武备什一税",
+    food: "粮秣什一税",
+    relic: "圣物什一税"
+  };
+  const record = {
+    taxid: form.taxid.value,
+    world: form.world.value,
+    governor: form.governor.value,
+    gradeLabel: gradeEl ? gradeLabels[gradeEl.value] : "",
+    tributes: Array.prototype.map.call(tributeEls, function (el) {
+      return tributeLabels[el.value];
+    }),
+    regiments: form.regiments.value,
+    duedate: form.duedate.value,
+    submittedAt: new Date().toLocaleString("zh-CN")
+  };
+  const records = getRecords();
+  records.unshift(record);
+  saveRecords(records);
+  renderRecords();
+  showToast("申报册已呈递并记入税籍档案。");
   form.reset();
   updateCharCount();
 }
@@ -42,4 +130,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const ta = document.getElementById("petition");
   ta.addEventListener("input", updateCharCount);
   updateCharCount();
+  document.getElementById("clear-records").addEventListener("click", function () {
+    if (confirm("确定要清空所有已呈递的申报册记录吗？")) {
+      localStorage.removeItem(STORAGE_KEY);
+      renderRecords();
+      showToast("税籍档案已清空。");
+    }
+  });
+  renderRecords();
 });
