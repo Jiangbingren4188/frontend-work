@@ -1,0 +1,61 @@
+[data-bs-theme="dark"] {
+  --bs-body-bg: #14110d;
+  --bs-body-color: #e8e0cf;
+  --bs-border-color: #4a3d28;
+  --bs-link-color-rgb: 200, 162, 77;
+  --bs-link-hover-color-rgb: 231, 205, 131;
+}
+
+body {
+  background-image: radial-gradient(circle at 50% -10%, #221b10 0%, #14110d 55%);
+  background-attachment: fixed;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+.navbar-imperial {
+  background: linear-gradient(#241d10, #161108);
+  border-bottom: 2px solid #4a3d28;
+}
+
+.navbar-imperial .navbar-brand {
+  font-family: Georgia, "SimSun", serif;
+  letter-spacing: 1px;
+}
+
+.hero-title {
+  font-family: Georgia, "SimSun", serif;
+  color: #e7cd83;
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  line-height: 1.25;
+}
+
+.card .card-title {
+  color: #e7cd83;
+  font-family: Georgia, "SimSun", serif;
+}
+
+.imperial-card {
+  background: #241f17;
+  border-color: #4a3d28;
+}
+
+.btn-imperial {
+  color: #f4e9d2;
+  background: linear-gradient(#b0412f, #7c2419);
+  border: 1px solid #c06a4e;
+}
+
+.btn-imperial:hover {
+  color: #fff;
+  filter: brightness(1.15);
+}
+
+.imperial-table thead th {
+  color: #1a1408;
+  background: linear-gradient(#d8b45e, #a8802f);
+}
+
+.footer-imperial {
+  background: #0f0d0a;
+  border-top: 2px solid #4a3d28;
+}
