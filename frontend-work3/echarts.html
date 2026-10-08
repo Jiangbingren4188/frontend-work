@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECharts 税级图表 · 奥特拉玛五百世界什一税总署</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+<div class="nav-wrap">
+<a class="logo" href="index.html">奥特拉玛五百世界什一税总署</a>
+<nav class="main-nav">
+<a href="portal.html">作品集</a>
+<a href="index.html">首页</a>
+<a href="worlds.html">世界名录</a>
+<a href="tithe.html">申报什一税</a>
+<a class="active" href="echarts.html">ECharts图表</a>
+<a href="bootstrap.html">Bootstrap版</a>
+</nav>
+</div>
+<p class="motto">帝国内政部 · 军务部联合派驻</p>
+</header>
+
+<main>
+<section id="charts">
+<h1>税籍数据可视化（ECharts）</h1>
+<p>以下图表数据均通过 fetch 从本地 data/worlds.json 异步加载。可悬停查看数值、点击图例筛选税级。</p>
+<p>数据来源：本地 data/worlds.json ｜ 范围：奥特拉玛税区节选 9 个世界 ｜ 单位：个、百分比（%）</p>
+<p id="chart-status" class="chart-status">图表数据加载中…</p>
+
+<h2>一、各税级世界数量分布（饼图）</h2>
+<p>看占比用饼：展示四种税级（含豁免）下的世界数量占整体的比例。悬停扇区显示数量与百分比，点击图例可隐藏/显示对应税级。</p>
+<div id="pie-chart" class="chart-box"></div>
+
+<h2>二、各世界什一税税率对比（柱状图）</h2>
+<p>比多少用柱：纵轴为税率（%），从 0 开始，不夸大差异；豁免世界税率为 0。悬停柱条查看数值。</p>
+<div id="bar-chart" class="chart-box"></div>
+</section>
+
+<aside>
+<h2>图表说明</h2>
+<p>图表库：Apache ECharts 5.6.0（本地 lib 离线包）；数据来源：本地 JSON 文件；交互：tooltip 提示框、legend 图例筛选、响应式 resize。</p>
+<a href="portal.html">返回作品集 →</a>
+</aside>
+</main>
+
+<footer>
+<div class="footer-inner">
+<p>奥特拉玛五百世界什一税总署 · 仅为战锤40000主题学习作品 · 愿帝皇守护您的灵魂</p>
+</div>
+</footer>
+<script src="lib/echarts.min.js"></script>
+<script src="js/echarts-charts.js"></script>
+</body>
+</html>

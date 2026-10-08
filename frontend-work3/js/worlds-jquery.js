@@ -5,20 +5,22 @@ function renderWorldsTable(worlds) {
     $tbody.html('<tr><td colspan="6" class="empty-row">未找到匹配的世界税籍记录。</td></tr>');
     return;
   }
-  $.each(worlds, function (i, w) {
-    const $tr = $("<tr></tr>");
-    $.each([w.name, w.type, w.grade, w.tribute, w.cycle], function (j, val) {
-      $tr.append($("<td></td>").text(val));
-    });
-    $tr.append($("<td></td>").addClass(w.statusClass).text(w.status));
+  worlds.forEach(function (w) {
+    const $tr = $("<tr>");
+    $tr.append($("<td>").text(w.name));
+    $tr.append($("<td>").text(w.type));
+    $tr.append($("<td>").text(w.grade));
+    $tr.append($("<td>").text(w.tribute));
+    $tr.append($("<td>").text(w.cycle));
+    $tr.append($("<td>").addClass(w.statusClass).text(w.status));
     $tbody.append($tr);
   });
 }
 
 function filterWorlds() {
-  const keyword = $.trim($("#search-input").val()).toLowerCase();
+  const keyword = $("#search-input").val().trim().toLowerCase();
   const grade = $("#grade-filter").val();
-  const filtered = $.grep(WORLDS_DATA, function (w) {
+  const filtered = WORLDS_DATA.filter(function (w) {
     const matchKeyword =
       !keyword ||
       w.name.toLowerCase().indexOf(keyword) !== -1 ||

@@ -6,20 +6,26 @@ function setControlsEnabled(enabled) {
   document.getElementById("reset-filter").disabled = !enabled;
 }
 
+function showMessageRow(text, extraNode) {
+  const tbody = document.getElementById("worlds-tbody");
+  tbody.innerHTML = "";
+  const tr = document.createElement("tr");
+  const td = document.createElement("td");
+  td.colSpan = 6;
+  td.className = "empty-row";
+  td.textContent = text;
+  if (extraNode) {
+    td.appendChild(document.createElement("br"));
+    td.appendChild(extraNode);
+  }
+  tr.appendChild(td);
+  tbody.appendChild(tr);
+}
+
 function renderWorldsTable(worlds) {
   const tbody = document.getElementById("worlds-tbody");
   tbody.innerHTML = "";
   document.getElementById("worlds-count").textContent = worlds.length;
-  if (worlds.length === 0) {
-    const tr = document.createElement("tr");
-    const td = document.createElement("td");
-    td.colSpan = 6;
-    td.className = "empty-row";
-    td.textContent = "未找到匹配的世界税籍记录。";
-    tr.appendChild(td);
-    tbody.appendChild(tr);
-    return;
-  }
   worlds.forEach(function (w) {
     const tr = document.createElement("tr");
     [w.name, w.type, w.grade, w.tribute, w.cycle].forEach(function (val) {
@@ -50,37 +56,33 @@ function filterWorlds() {
   renderWorldsTable(filtered);
 }
 
-function showLoadError(msg) {
-  const tbody = document.getElementById("worlds-tbody");
-  tbody.innerHTML = "";
-  const tr = document.createElement("tr");
-  const td = document.createElement("td");
-  td.colSpan = 6;
-  td.className = "load-error";
-  td.textContent = "税籍档卷调取失败：" + msg + "（请确认通过本地服务器访问，且 data/worlds.json 存在）";
-  tr.appendChild(td);
-  tbody.appendChild(tr);
+const loadWorlds = async () => {
+  setControlsEnabled(false);
+  showMessageRow("税籍档卷正在从本地档库调取，请稍候…");
   document.getElementById("worlds-count").textContent = 0;
-}
-
-function loadWorlds() {
-  fetch("data/worlds.json", { cache: "no-store" })
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error("HTTP " + response.status);
-      }
-      return response.json();
-    })
-    .then(function (data) {
-      allWorlds = data;
-      setControlsEnabled(true);
-      renderWorldsTable(allWorlds);
-    })
-    .catch(function (err) {
-      setControlsEnabled(false);
-      showLoadError(err.message);
-    });
-}
+  try {
+    const response = await fetch("data/worlds.json", { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error("HTTP错误：" + response.status);
+    }
+    const data = await response.json();
+    if (data.length === 0) {
+      showMessageRow("暂无世界税籍数据。");
+      return;
+    }
+    allWorlds = data;
+    setControlsEnabled(true);
+    renderWorldsTable(allWorlds);
+  } catch (error) {
+    const retryBtn = document.createElement("button");
+    retryBtn.type = "button";
+    retryBtn.className = "btn btn-outline btn-sm";
+    retryBtn.style.marginTop = "8px";
+    retryBtn.textContent = "重新调取";
+    retryBtn.addEventListener("click", loadWorlds);
+    showMessageRow("税籍档卷调取失败：" + error.message, retryBtn);
+  }
+};
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("search-input").addEventListener("input", filterWorlds);

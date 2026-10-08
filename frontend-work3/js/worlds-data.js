@@ -61,5 +61,23 @@ const WORLDS_DATA = [
     cycle: "不适用",
     status: "特殊",
     statusClass: "status-free"
+  },
+  {
+    name: "塔伦图斯（Tarentus）",
+    type: "海洋世界",
+    grade: "Exactis Secundus",
+    tribute: "海盐、水产配给",
+    cycle: "二十年一届",
+    status: "在征",
+    statusClass: "status-ok"
+  },
+  {
+    name: "帕梅尼奥（Parmenio）",
+    type: "工业世界",
+    grade: "Exactis Prima",
+    tribute: "工程机械、弹药",
+    cycle: "二十年一届",
+    status: "在征",
+    statusClass: "status-ok"
   }
 ];
