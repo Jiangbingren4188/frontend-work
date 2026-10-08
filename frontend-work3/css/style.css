@@ -618,3 +618,15 @@ footer ul {
   background: rgba(169, 58, 46, 0.12);
   border-left-color: var(--red);
 }
+
+.btn-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+#portal h2 {
+  margin-top: 32px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
