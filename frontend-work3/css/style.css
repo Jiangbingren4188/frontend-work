@@ -625,6 +625,11 @@ footer ul {
   pointer-events: none;
 }
 
+.load-error {
+  color: #e08060;
+  background: rgba(169, 58, 46, 0.1);
+}
+
 #portal h2 {
   margin-top: 32px;
   padding-bottom: 6px;
