@@ -29,7 +29,7 @@
 
 <section id="form">
 <h2>什一税申报册</h2>
-<form action="#" method="get">
+<form action="#" method="get" id="tithe-form">
 <fieldset>
 <legend>申报世界信息</legend>
 <p>
@@ -106,6 +106,7 @@
 <p>
 <label for="petition">申报陈情书</label>
 <textarea id="petition" name="petition" rows="5" maxlength="300" placeholder="简述本界百年贡赋备办情形，限300字以内" required></textarea>
+<span class="char-count">已写 <span id="char-count">0</span> / 300 字</span>
 </p>
 
 <p class="form-actions">
@@ -137,5 +138,6 @@
 </ul>
 </div>
 </footer>
+<script src="js/tithe.js"></script>
 </body>
 </html>
