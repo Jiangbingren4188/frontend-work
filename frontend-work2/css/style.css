@@ -588,3 +588,33 @@ footer ul {
   text-align: center;
   padding: 20px;
 }
+
+.calc-form {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.filter-row input[type="number"] {
+  flex: 1;
+  min-width: 180px;
+  max-width: 320px;
+  width: auto;
+}
+
+.calc-result {
+  color: var(--gold-bright);
+  font-weight: bold;
+  padding: 10px 14px;
+  background: rgba(200, 162, 77, 0.1);
+  border-left: 3px solid var(--gold);
+  border-radius: 4px;
+  min-height: 1.5em;
+}
+
+.calc-warn {
+  color: #e08060;
+  background: rgba(169, 58, 46, 0.12);
+  border-left-color: var(--red);
+}

@@ -83,6 +83,34 @@
 </div>
 </section>
 
+<section id="calculator">
+<h2>税级速算</h2>
+<p>输入本界类型与人口基数，书记官将依《度支典册》速算核定税级与应征额度（仅供参考，最终以内政部勘定为准）。</p>
+<div class="calc-form">
+<p class="filter-row">
+<label for="calc-type">世界类型</label>
+<select id="calc-type">
+<option value="">请选择</option>
+<option value="hive">巢都世界</option>
+<option value="forge">铸造世界</option>
+<option value="agri">农业世界</option>
+<option value="industrial">工业世界</option>
+<option value="garden">花园世界</option>
+<option value="fief">阿斯塔特采邑</option>
+<option value="frontier">边陲世界</option>
+</select>
+</p>
+<p class="filter-row">
+<label for="calc-pop">人口基数（亿）</label>
+<input type="number" id="calc-pop" min="0" step="0.1" placeholder="如：120">
+</p>
+<p class="filter-row">
+<button type="button" id="calc-btn" class="btn btn-primary">速算税级</button>
+</p>
+<p id="calc-result" class="calc-result"></p>
+</div>
+</section>
+
 <aside>
 <h2>行政警报</h2>
 <p>奉基里曼摄政王权谕：亚空间航线近期不稳，诸世界须提前三十日备妥税赋，逾期不至者以通敌论处。</p>
@@ -99,5 +127,6 @@
 </ul>
 </div>
 </footer>
+<script src="js/index.js"></script>
 </body>
 </html>
