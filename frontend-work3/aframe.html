@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A-Frame 帝国什一税征收站 · 奥特拉玛五百世界什一税总署</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0d1226; }
+  #scene-overlay {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    max-width: 330px;
+    padding: 12px 16px;
+    background: rgba(13, 18, 38, 0.72);
+    border: 1px solid rgba(200, 162, 77, 0.5);
+    border-radius: 8px;
+    color: #e8e0cc;
+    z-index: 9999;
+    font-family: "Microsoft YaHei", sans-serif;
+  }
+  #scene-overlay h1 { font-size: 18px; color: #d9b45c; margin: 0 0 6px; }
+  #scene-overlay p { margin: 3px 0; font-size: 13px; line-height: 1.6; }
+  #scene-overlay .hint { color: #9fa8c4; }
+  #scene-overlay a { color: #d9b45c; text-decoration: none; display: inline-block; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div id="scene-overlay">
+<h1>帝国什一税征收站</h1>
+<p>夜幕下的征税站：公署大厅、双头鹰旗杆与脉动信号灯。</p>
+<p class="hint">WASD 移动 ｜ 鼠标拖动环顾 ｜ 注视金色税玺并点击可变色</p>
+<a href="portal.html">← 返回作品集</a>
+</div>
+
+<a-scene background="color: #0d1226">
+  <a-sky color="#1a2340"></a-sky>
+  <a-plane
+    position="0 0 -6" rotation="-90 0 0"
+    width="24" height="24" color="#2c2e38">
+  </a-plane>
+
+  <a-box position="0 1.2 -8" width="4.5" height="2.4" depth="2.4" color="#4a4f5e"></a-box>
+  <a-box position="0 2.7 -8" width="4.9" height="0.45" depth="2.8" color="#c8a24d"></a-box>
+  <a-box position="0 3.15 -8" width="0.5" height="0.9" depth="0.5" color="#c8a24d"></a-box>
+  <a-box position="0 1.0 -6.72" width="0.9" height="2" depth="0.12" color="#2a2d38"></a-box>
+
+  <a-cylinder position="3.4 1.8 -6.5" radius="0.05" height="3.6" color="#9e9e9e"></a-cylinder>
+  <a-box
+    position="3.8 3.3 -6.5" width="0.75" height="0.45" depth="0.03" color="#b71c1c"
+    animation="property: position; to: 3.86 3.3 -6.5; dir: alternate; dur: 900; loop: true">
+  </a-box>
+
+  <a-cylinder position="-3.4 1.2 -5.5" radius="0.06" height="2.4" color="#616161"></a-cylinder>
+  <a-sphere position="-3.4 2.5 -5.5" radius="0.2" color="#fff59d"
+            animation="property: scale; to: 1.35 1.35 1.35; dir: alternate; dur: 1200; loop: true">
+  </a-sphere>
+  <a-light type="point" position="-3.4 2.6 -5.5" color="#fff59d" intensity="0.7"></a-light>
+
+  <a-cylinder position="-1.6 0.55 -5.2" radius="0.45" height="1.1" radius-bottom="0.6" color="#7a6a45"></a-cylinder>
+  <a-cylinder position="-1.6 1.25 -5.2" radius="0.5" height="0.22" color="#c8a24d"
+              onclick="this.setAttribute('color', this.getAttribute('color') === '#c8a24d' ? '#b71c1c' : '#c8a24d')"
+              animation__scale="property: scale; to: 1.12 1.12 1.12; dir: alternate; dur: 1000; loop: true">
+  </a-cylinder>
+
+  <a-sphere position="0 7 -14" radius="1.6" color="#d8d2b8"
+            animation="property: rotation; to: 0 360 0; dur: 30000; loop: true; easing: linear">
+  </a-sphere>
+
+  <a-light type="ambient" color="#ffffff" intensity="0.7"></a-light>
+
+  <a-camera position="0 1.8 2">
+    <a-cursor color="#d9b45c"></a-cursor>
+  </a-camera>
+</a-scene>
+
+<script src="lib/aframe.min.js"></script>
+</body>
+</html>
